@@ -10,11 +10,18 @@ def p_start(p):
 def p_function(p):
     '''
     function : function statement SPLIT
+             | function line_statement
              | empty
     '''
 
 
+def p_statement_none(p):
+    'line_statement : SPLIT'
 
+
+def p_statement_expr(p):
+    'line_statement : expression SPLIT'
+    p[0] = p[1]
 
 
 # print语句
@@ -23,6 +30,14 @@ def p_statement_print(p):
     statement : PRINT LPAREN expression RPAREN
     '''
     print(p[3])
+
+
+# 赋值语句
+def p_statement_assign(p):
+    '''
+    line_statement : ID ASSIGN expression SPLIT
+    '''
+    p[0] = var_context[p[1]] = p[3]
 
 
 # true

@@ -15,4 +15,8 @@
 # print("dyq")
 # print("666")
 
-a = 2
+a = 2 + (3 * 3)
+print(a)
+
+b = 'dyq666!!!'
+print(b)
