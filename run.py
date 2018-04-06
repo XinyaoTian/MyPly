@@ -22,6 +22,5 @@ if a == 1:
     for l in lexs:
         print(l)
 elif a == 2:
-    # print(parses.parse(data))
     for x in parses.parse(data):
         DyqExecute.resolve(x)

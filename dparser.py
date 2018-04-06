@@ -50,12 +50,13 @@ def p_statement_print(p):
 # 生成一个list对象记录着每个迭代的次数
 def p_range(p):
     'range : RANGE LPAREN expr_list RPAREN'
+    print('is range', p)
     p[0] = list(range(p[3][0], p[3][1]))
-
+    print('is range', p[0])
 
 
 def p_statement_for(p):
-    'line_statement : FOR ID IN range COLON statement SEMI'
+    'line_statement : FOR ID IN range COLON statement SPLIT'
     p[0] = DyqExecute(action='loop', params=[p[2], p[4], p[6]])
 
 
@@ -119,7 +120,7 @@ def p_condition_list(p):
     '''
 
     if len(p) > 2:
-        p[0] = get_conditions(params=p[1:])
+        p[0] = DyqExecute(action='logop', params=p[1:])
     else:
         p[0] = p[1]
 
@@ -192,3 +193,7 @@ def p_error(p):
 
 def p_empty(p):
     'empty :'
+
+
+def debug(*params):
+    print("[DBG] %s" % (' : '.join(str(x) for x in params),))

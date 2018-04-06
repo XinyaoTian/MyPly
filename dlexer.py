@@ -14,7 +14,7 @@ states = (
 identify = ('NUMBER', 'ID', 'SPLIT', 'STRING')
 
 # 保留字，TOKEN值为大写
-reserved_list = ['true', 'false', 'print', 'and', 'or', 'if', 'else']
+reserved_list = ['true', 'false', 'print', 'and', 'or', 'if', 'else', 'for', 'in', 'range']
 reserved = {s: s.upper() for s in reserved_list}
 
 # 单字符的操作符 +-*/%><
