@@ -1,3 +1,5 @@
+from itertools import chain
+
 from dlexer import tokens
 
 var_context = {}
@@ -27,9 +29,9 @@ def p_statement_expr(p):
 # print语句
 def p_statement_print(p):
     '''
-    statement : PRINT LPAREN expression RPAREN
+    statement : PRINT LPAREN expr_list RPAREN
     '''
-    print(p[3])
+    print(''.join([str(i) for i in p[3]]))
 
 
 # 赋值语句
@@ -38,6 +40,17 @@ def p_statement_assign(p):
     line_statement : ID ASSIGN expression SPLIT
     '''
     p[0] = var_context[p[1]] = p[3]
+
+
+def p_expression_list(p):
+    '''
+    expr_list : expression
+              | expr_list COMMA expression
+    '''
+    if len(p) <= 3:
+        p[0] = [p[1]]
+    else:
+        p[0] = p[1] + [p[3]]
 
 
 # true

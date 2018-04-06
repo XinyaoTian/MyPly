@@ -20,3 +20,6 @@ print(a)
 
 b = 'dyq666!!!'
 print(b)
+
+
+print(a, b, '   ', 'aaaaa', 2)

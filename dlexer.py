@@ -35,6 +35,7 @@ operator_sg = {
     '(': 'LPAREN',
     ')': 'RPAREN',
     '=': 'ASSIGN',
+    ',': 'COMMA',
 }
 
 # 双字符的操作符
