@@ -70,14 +70,16 @@ def p_expression_two_operator(p):
     }[p[2]](p[1], p[3])
 
 
+# 增加括号(语句)功能
+def p_expression_parens(p):
+    'expression : LPAREN expression RPAREN'
+    p[0] = p[2]
+
+
+# 出错功能
+def p_error(p):
+    print("Syntax error in input!", p)
+
+
 def p_empty(p):
     'empty :'
-
-# import ply.yacc as yacc
-# parser = yacc.yacc()
-# with open('test_code.py', 'r') as f:
-#     data = f.read()
-#
-#
-# result = parser.parse(data)
-# print(result)
