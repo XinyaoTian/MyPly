@@ -38,6 +38,12 @@ def p_expression_num(p):
     p[0] = int(p[1])
 
 
+# 标识符STRING
+def p_expression_string(p):
+    'expression : STRING'
+    p[0] = p[1]
+
+
 # 二元操作符
 def p_expression_two_operator(p):
     '''

@@ -11,8 +11,13 @@ from ply.lex import TOKEN
 #     ('left', 'MUL', 'DIV', 'MOD'),
 # )
 
+# 状态控制
+states = (
+    ('string', 'inclusive'),
+)
+
 # 标识符
-identify = ('NUMBER', 'ID', 'SPLIT')
+identify = ('NUMBER', 'ID', 'SPLIT', 'STRING')
 
 # 保留字，TOKEN值为大写
 reserved_list = ['true', 'false', 'print']
@@ -64,6 +69,30 @@ def t_ID(t):
     # Check for reserved words, 如果是保留字，类型就是设置好的保留字类型，否则就是id类型
     t.type = reserved.get(t.value.lower(), 'ID')
     return t
+
+
+# 字符串起始位置
+def t_STRING(t):
+    r'["\']'
+    t.lexer.begin('string')
+    t.lexer.str_start = t.lexer.lexpos
+    t.lexer.str_marker = t.value
+
+
+# 忽略所有以"'开头的字符, 也就是字符串的主体
+def t_string_chars(t):
+    r'[^"\']+'
+
+
+# 字符串结束为止
+def t_string_end(t):
+    r'["\']'
+    if t.lexer.str_marker == t.value:
+        t.type = 'STRING'
+        t.value = t.lexer.lexdata[t.lexer.str_start:t.lexer.lexpos - 1]
+        # 默认的状态是initial
+        t.lexer.begin('INITIAL')
+        return t
 
 
 # 双字符的操作符要放在单字符操作符上面，优先匹配
