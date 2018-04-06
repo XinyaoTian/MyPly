@@ -5,8 +5,15 @@ __date__ = '2018/4/5 19:38'
 from re import escape
 from ply.lex import TOKEN
 
+
+# precedence = (
+#     ('left', 'LT', 'GT'),
+#     ('left', 'REM', 'ADD'),
+#     ('left', 'MUL', 'DIV', 'MOD'),
+# )
+
 # 标识符
-identify = ('NUMBER', 'ID')
+identify = ('NUMBER', 'ID', 'SPLIT')
 
 # 保留字，TOKEN值为大写
 reserved_list = ['true', 'false', 'print']
@@ -65,10 +72,11 @@ def t_COMMENT(t):
     r'\#.*'
 
 
-# 换行(用\n或者;)
-def t_newline(t):
+# 换行,同时也是语句的分隔符
+def t_SPLIT(t):
     r'\n+|;+'
     t.lexer.lineno += len(t.value)
+    return t
 
 
 # 先忽略空格和tab符

@@ -1,0 +1,649 @@
+Created by PLY version 3.10 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ID
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> function
+Rule 2     function -> function statement SPLIT
+Rule 3     function -> empty
+Rule 4     statement -> PRINT LPAREN expression RPAREN
+Rule 5     expression -> TRUE
+Rule 6     expression -> FALSE
+Rule 7     expression -> NUMBER
+Rule 8     expression -> expression ADD expression
+Rule 9     expression -> expression REM expression
+Rule 10    expression -> expression MUL expression
+Rule 11    expression -> expression DIV expression
+Rule 12    expression -> expression MOD expression
+Rule 13    expression -> expression GT expression
+Rule 14    expression -> expression LT expression
+Rule 15    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ADD                  : 8
+DIV                  : 11
+FALSE                : 6
+GT                   : 13
+ID                   : 
+LPAREN               : 4
+LT                   : 14
+MOD                  : 12
+MUL                  : 10
+NUMBER               : 7
+PRINT                : 4
+REM                  : 9
+RPAREN               : 4
+SPLIT                : 2
+TRUE                 : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+empty                : 3
+expression           : 4 8 8 9 9 10 10 11 11 12 12 13 13 14 14
+function             : 1 2
+start                : 0
+statement            : 2
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . start
+    (1) start -> . function
+    (2) function -> . function statement SPLIT
+    (3) function -> . empty
+    (15) empty -> .
+
+    PRINT           reduce using rule 15 (empty -> .)
+    $end            reduce using rule 15 (empty -> .)
+
+    start                          shift and go to state 1
+    function                       shift and go to state 2
+    empty                          shift and go to state 3
+
+state 1
+
+    (0) S' -> start .
+
+
+
+state 2
+
+    (1) start -> function .
+    (2) function -> function . statement SPLIT
+    (4) statement -> . PRINT LPAREN expression RPAREN
+
+    $end            reduce using rule 1 (start -> function .)
+    PRINT           shift and go to state 5
+
+    statement                      shift and go to state 4
+
+state 3
+
+    (3) function -> empty .
+
+    PRINT           reduce using rule 3 (function -> empty .)
+    $end            reduce using rule 3 (function -> empty .)
+
+
+state 4
+
+    (2) function -> function statement . SPLIT
+
+    SPLIT           shift and go to state 6
+
+
+state 5
+
+    (4) statement -> PRINT . LPAREN expression RPAREN
+
+    LPAREN          shift and go to state 7
+
+
+state 6
+
+    (2) function -> function statement SPLIT .
+
+    PRINT           reduce using rule 2 (function -> function statement SPLIT .)
+    $end            reduce using rule 2 (function -> function statement SPLIT .)
+
+
+state 7
+
+    (4) statement -> PRINT LPAREN . expression RPAREN
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . NUMBER
+    (8) expression -> . expression ADD expression
+    (9) expression -> . expression REM expression
+    (10) expression -> . expression MUL expression
+    (11) expression -> . expression DIV expression
+    (12) expression -> . expression MOD expression
+    (13) expression -> . expression GT expression
+    (14) expression -> . expression LT expression
+
+    TRUE            shift and go to state 9
+    FALSE           shift and go to state 10
+    NUMBER          shift and go to state 11
+
+    expression                     shift and go to state 8
+
+state 8
+
+    (4) statement -> PRINT LPAREN expression . RPAREN
+    (8) expression -> expression . ADD expression
+    (9) expression -> expression . REM expression
+    (10) expression -> expression . MUL expression
+    (11) expression -> expression . DIV expression
+    (12) expression -> expression . MOD expression
+    (13) expression -> expression . GT expression
+    (14) expression -> expression . LT expression
+
+    RPAREN          shift and go to state 12
+    ADD             shift and go to state 13
+    REM             shift and go to state 14
+    MUL             shift and go to state 15
+    DIV             shift and go to state 16
+    MOD             shift and go to state 17
+    GT              shift and go to state 18
+    LT              shift and go to state 19
+
+
+state 9
+
+    (5) expression -> TRUE .
+
+    RPAREN          reduce using rule 5 (expression -> TRUE .)
+    ADD             reduce using rule 5 (expression -> TRUE .)
+    REM             reduce using rule 5 (expression -> TRUE .)
+    MUL             reduce using rule 5 (expression -> TRUE .)
+    DIV             reduce using rule 5 (expression -> TRUE .)
+    MOD             reduce using rule 5 (expression -> TRUE .)
+    GT              reduce using rule 5 (expression -> TRUE .)
+    LT              reduce using rule 5 (expression -> TRUE .)
+
+
+state 10
+
+    (6) expression -> FALSE .
+
+    RPAREN          reduce using rule 6 (expression -> FALSE .)
+    ADD             reduce using rule 6 (expression -> FALSE .)
+    REM             reduce using rule 6 (expression -> FALSE .)
+    MUL             reduce using rule 6 (expression -> FALSE .)
+    DIV             reduce using rule 6 (expression -> FALSE .)
+    MOD             reduce using rule 6 (expression -> FALSE .)
+    GT              reduce using rule 6 (expression -> FALSE .)
+    LT              reduce using rule 6 (expression -> FALSE .)
+
+
+state 11
+
+    (7) expression -> NUMBER .
+
+    RPAREN          reduce using rule 7 (expression -> NUMBER .)
+    ADD             reduce using rule 7 (expression -> NUMBER .)
+    REM             reduce using rule 7 (expression -> NUMBER .)
+    MUL             reduce using rule 7 (expression -> NUMBER .)
+    DIV             reduce using rule 7 (expression -> NUMBER .)
+    MOD             reduce using rule 7 (expression -> NUMBER .)
+    GT              reduce using rule 7 (expression -> NUMBER .)
+    LT              reduce using rule 7 (expression -> NUMBER .)
+
+
+state 12
+
+    (4) statement -> PRINT LPAREN expression RPAREN .
+
+    SPLIT           reduce using rule 4 (statement -> PRINT LPAREN expression RPAREN .)
+
+
+state 13
+
+    (8) expression -> expression ADD . expression
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . NUMBER
+    (8) expression -> . expression ADD expression
+    (9) expression -> . expression REM expression
+    (10) expression -> . expression MUL expression
+    (11) expression -> . expression DIV expression
+    (12) expression -> . expression MOD expression
+    (13) expression -> . expression GT expression
+    (14) expression -> . expression LT expression
+
+    TRUE            shift and go to state 9
+    FALSE           shift and go to state 10
+    NUMBER          shift and go to state 11
+
+    expression                     shift and go to state 20
+
+state 14
+
+    (9) expression -> expression REM . expression
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . NUMBER
+    (8) expression -> . expression ADD expression
+    (9) expression -> . expression REM expression
+    (10) expression -> . expression MUL expression
+    (11) expression -> . expression DIV expression
+    (12) expression -> . expression MOD expression
+    (13) expression -> . expression GT expression
+    (14) expression -> . expression LT expression
+
+    TRUE            shift and go to state 9
+    FALSE           shift and go to state 10
+    NUMBER          shift and go to state 11
+
+    expression                     shift and go to state 21
+
+state 15
+
+    (10) expression -> expression MUL . expression
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . NUMBER
+    (8) expression -> . expression ADD expression
+    (9) expression -> . expression REM expression
+    (10) expression -> . expression MUL expression
+    (11) expression -> . expression DIV expression
+    (12) expression -> . expression MOD expression
+    (13) expression -> . expression GT expression
+    (14) expression -> . expression LT expression
+
+    TRUE            shift and go to state 9
+    FALSE           shift and go to state 10
+    NUMBER          shift and go to state 11
+
+    expression                     shift and go to state 22
+
+state 16
+
+    (11) expression -> expression DIV . expression
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . NUMBER
+    (8) expression -> . expression ADD expression
+    (9) expression -> . expression REM expression
+    (10) expression -> . expression MUL expression
+    (11) expression -> . expression DIV expression
+    (12) expression -> . expression MOD expression
+    (13) expression -> . expression GT expression
+    (14) expression -> . expression LT expression
+
+    TRUE            shift and go to state 9
+    FALSE           shift and go to state 10
+    NUMBER          shift and go to state 11
+
+    expression                     shift and go to state 23
+
+state 17
+
+    (12) expression -> expression MOD . expression
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . NUMBER
+    (8) expression -> . expression ADD expression
+    (9) expression -> . expression REM expression
+    (10) expression -> . expression MUL expression
+    (11) expression -> . expression DIV expression
+    (12) expression -> . expression MOD expression
+    (13) expression -> . expression GT expression
+    (14) expression -> . expression LT expression
+
+    TRUE            shift and go to state 9
+    FALSE           shift and go to state 10
+    NUMBER          shift and go to state 11
+
+    expression                     shift and go to state 24
+
+state 18
+
+    (13) expression -> expression GT . expression
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . NUMBER
+    (8) expression -> . expression ADD expression
+    (9) expression -> . expression REM expression
+    (10) expression -> . expression MUL expression
+    (11) expression -> . expression DIV expression
+    (12) expression -> . expression MOD expression
+    (13) expression -> . expression GT expression
+    (14) expression -> . expression LT expression
+
+    TRUE            shift and go to state 9
+    FALSE           shift and go to state 10
+    NUMBER          shift and go to state 11
+
+    expression                     shift and go to state 25
+
+state 19
+
+    (14) expression -> expression LT . expression
+    (5) expression -> . TRUE
+    (6) expression -> . FALSE
+    (7) expression -> . NUMBER
+    (8) expression -> . expression ADD expression
+    (9) expression -> . expression REM expression
+    (10) expression -> . expression MUL expression
+    (11) expression -> . expression DIV expression
+    (12) expression -> . expression MOD expression
+    (13) expression -> . expression GT expression
+    (14) expression -> . expression LT expression
+
+    TRUE            shift and go to state 9
+    FALSE           shift and go to state 10
+    NUMBER          shift and go to state 11
+
+    expression                     shift and go to state 26
+
+state 20
+
+    (8) expression -> expression ADD expression .
+    (8) expression -> expression . ADD expression
+    (9) expression -> expression . REM expression
+    (10) expression -> expression . MUL expression
+    (11) expression -> expression . DIV expression
+    (12) expression -> expression . MOD expression
+    (13) expression -> expression . GT expression
+    (14) expression -> expression . LT expression
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for REM resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+    RPAREN          reduce using rule 8 (expression -> expression ADD expression .)
+    ADD             shift and go to state 13
+    REM             shift and go to state 14
+    MUL             shift and go to state 15
+    DIV             shift and go to state 16
+    MOD             shift and go to state 17
+    GT              shift and go to state 18
+    LT              shift and go to state 19
+
+  ! ADD             [ reduce using rule 8 (expression -> expression ADD expression .) ]
+  ! REM             [ reduce using rule 8 (expression -> expression ADD expression .) ]
+  ! MUL             [ reduce using rule 8 (expression -> expression ADD expression .) ]
+  ! DIV             [ reduce using rule 8 (expression -> expression ADD expression .) ]
+  ! MOD             [ reduce using rule 8 (expression -> expression ADD expression .) ]
+  ! GT              [ reduce using rule 8 (expression -> expression ADD expression .) ]
+  ! LT              [ reduce using rule 8 (expression -> expression ADD expression .) ]
+
+
+state 21
+
+    (9) expression -> expression REM expression .
+    (8) expression -> expression . ADD expression
+    (9) expression -> expression . REM expression
+    (10) expression -> expression . MUL expression
+    (11) expression -> expression . DIV expression
+    (12) expression -> expression . MOD expression
+    (13) expression -> expression . GT expression
+    (14) expression -> expression . LT expression
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for REM resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+    RPAREN          reduce using rule 9 (expression -> expression REM expression .)
+    ADD             shift and go to state 13
+    REM             shift and go to state 14
+    MUL             shift and go to state 15
+    DIV             shift and go to state 16
+    MOD             shift and go to state 17
+    GT              shift and go to state 18
+    LT              shift and go to state 19
+
+  ! ADD             [ reduce using rule 9 (expression -> expression REM expression .) ]
+  ! REM             [ reduce using rule 9 (expression -> expression REM expression .) ]
+  ! MUL             [ reduce using rule 9 (expression -> expression REM expression .) ]
+  ! DIV             [ reduce using rule 9 (expression -> expression REM expression .) ]
+  ! MOD             [ reduce using rule 9 (expression -> expression REM expression .) ]
+  ! GT              [ reduce using rule 9 (expression -> expression REM expression .) ]
+  ! LT              [ reduce using rule 9 (expression -> expression REM expression .) ]
+
+
+state 22
+
+    (10) expression -> expression MUL expression .
+    (8) expression -> expression . ADD expression
+    (9) expression -> expression . REM expression
+    (10) expression -> expression . MUL expression
+    (11) expression -> expression . DIV expression
+    (12) expression -> expression . MOD expression
+    (13) expression -> expression . GT expression
+    (14) expression -> expression . LT expression
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for REM resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+    RPAREN          reduce using rule 10 (expression -> expression MUL expression .)
+    ADD             shift and go to state 13
+    REM             shift and go to state 14
+    MUL             shift and go to state 15
+    DIV             shift and go to state 16
+    MOD             shift and go to state 17
+    GT              shift and go to state 18
+    LT              shift and go to state 19
+
+  ! ADD             [ reduce using rule 10 (expression -> expression MUL expression .) ]
+  ! REM             [ reduce using rule 10 (expression -> expression MUL expression .) ]
+  ! MUL             [ reduce using rule 10 (expression -> expression MUL expression .) ]
+  ! DIV             [ reduce using rule 10 (expression -> expression MUL expression .) ]
+  ! MOD             [ reduce using rule 10 (expression -> expression MUL expression .) ]
+  ! GT              [ reduce using rule 10 (expression -> expression MUL expression .) ]
+  ! LT              [ reduce using rule 10 (expression -> expression MUL expression .) ]
+
+
+state 23
+
+    (11) expression -> expression DIV expression .
+    (8) expression -> expression . ADD expression
+    (9) expression -> expression . REM expression
+    (10) expression -> expression . MUL expression
+    (11) expression -> expression . DIV expression
+    (12) expression -> expression . MOD expression
+    (13) expression -> expression . GT expression
+    (14) expression -> expression . LT expression
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for REM resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+    RPAREN          reduce using rule 11 (expression -> expression DIV expression .)
+    ADD             shift and go to state 13
+    REM             shift and go to state 14
+    MUL             shift and go to state 15
+    DIV             shift and go to state 16
+    MOD             shift and go to state 17
+    GT              shift and go to state 18
+    LT              shift and go to state 19
+
+  ! ADD             [ reduce using rule 11 (expression -> expression DIV expression .) ]
+  ! REM             [ reduce using rule 11 (expression -> expression DIV expression .) ]
+  ! MUL             [ reduce using rule 11 (expression -> expression DIV expression .) ]
+  ! DIV             [ reduce using rule 11 (expression -> expression DIV expression .) ]
+  ! MOD             [ reduce using rule 11 (expression -> expression DIV expression .) ]
+  ! GT              [ reduce using rule 11 (expression -> expression DIV expression .) ]
+  ! LT              [ reduce using rule 11 (expression -> expression DIV expression .) ]
+
+
+state 24
+
+    (12) expression -> expression MOD expression .
+    (8) expression -> expression . ADD expression
+    (9) expression -> expression . REM expression
+    (10) expression -> expression . MUL expression
+    (11) expression -> expression . DIV expression
+    (12) expression -> expression . MOD expression
+    (13) expression -> expression . GT expression
+    (14) expression -> expression . LT expression
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for REM resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+    RPAREN          reduce using rule 12 (expression -> expression MOD expression .)
+    ADD             shift and go to state 13
+    REM             shift and go to state 14
+    MUL             shift and go to state 15
+    DIV             shift and go to state 16
+    MOD             shift and go to state 17
+    GT              shift and go to state 18
+    LT              shift and go to state 19
+
+  ! ADD             [ reduce using rule 12 (expression -> expression MOD expression .) ]
+  ! REM             [ reduce using rule 12 (expression -> expression MOD expression .) ]
+  ! MUL             [ reduce using rule 12 (expression -> expression MOD expression .) ]
+  ! DIV             [ reduce using rule 12 (expression -> expression MOD expression .) ]
+  ! MOD             [ reduce using rule 12 (expression -> expression MOD expression .) ]
+  ! GT              [ reduce using rule 12 (expression -> expression MOD expression .) ]
+  ! LT              [ reduce using rule 12 (expression -> expression MOD expression .) ]
+
+
+state 25
+
+    (13) expression -> expression GT expression .
+    (8) expression -> expression . ADD expression
+    (9) expression -> expression . REM expression
+    (10) expression -> expression . MUL expression
+    (11) expression -> expression . DIV expression
+    (12) expression -> expression . MOD expression
+    (13) expression -> expression . GT expression
+    (14) expression -> expression . LT expression
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for REM resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+    RPAREN          reduce using rule 13 (expression -> expression GT expression .)
+    ADD             shift and go to state 13
+    REM             shift and go to state 14
+    MUL             shift and go to state 15
+    DIV             shift and go to state 16
+    MOD             shift and go to state 17
+    GT              shift and go to state 18
+    LT              shift and go to state 19
+
+  ! ADD             [ reduce using rule 13 (expression -> expression GT expression .) ]
+  ! REM             [ reduce using rule 13 (expression -> expression GT expression .) ]
+  ! MUL             [ reduce using rule 13 (expression -> expression GT expression .) ]
+  ! DIV             [ reduce using rule 13 (expression -> expression GT expression .) ]
+  ! MOD             [ reduce using rule 13 (expression -> expression GT expression .) ]
+  ! GT              [ reduce using rule 13 (expression -> expression GT expression .) ]
+  ! LT              [ reduce using rule 13 (expression -> expression GT expression .) ]
+
+
+state 26
+
+    (14) expression -> expression LT expression .
+    (8) expression -> expression . ADD expression
+    (9) expression -> expression . REM expression
+    (10) expression -> expression . MUL expression
+    (11) expression -> expression . DIV expression
+    (12) expression -> expression . MOD expression
+    (13) expression -> expression . GT expression
+    (14) expression -> expression . LT expression
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for REM resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LT resolved as shift
+    RPAREN          reduce using rule 14 (expression -> expression LT expression .)
+    ADD             shift and go to state 13
+    REM             shift and go to state 14
+    MUL             shift and go to state 15
+    DIV             shift and go to state 16
+    MOD             shift and go to state 17
+    GT              shift and go to state 18
+    LT              shift and go to state 19
+
+  ! ADD             [ reduce using rule 14 (expression -> expression LT expression .) ]
+  ! REM             [ reduce using rule 14 (expression -> expression LT expression .) ]
+  ! MUL             [ reduce using rule 14 (expression -> expression LT expression .) ]
+  ! DIV             [ reduce using rule 14 (expression -> expression LT expression .) ]
+  ! MOD             [ reduce using rule 14 (expression -> expression LT expression .) ]
+  ! GT              [ reduce using rule 14 (expression -> expression LT expression .) ]
+  ! LT              [ reduce using rule 14 (expression -> expression LT expression .) ]
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for ADD in state 20 resolved as shift
+WARNING: shift/reduce conflict for REM in state 20 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 20 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 20 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 20 resolved as shift
+WARNING: shift/reduce conflict for GT in state 20 resolved as shift
+WARNING: shift/reduce conflict for LT in state 20 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 21 resolved as shift
+WARNING: shift/reduce conflict for REM in state 21 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 21 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 21 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 21 resolved as shift
+WARNING: shift/reduce conflict for GT in state 21 resolved as shift
+WARNING: shift/reduce conflict for LT in state 21 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 22 resolved as shift
+WARNING: shift/reduce conflict for REM in state 22 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 22 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 22 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 22 resolved as shift
+WARNING: shift/reduce conflict for GT in state 22 resolved as shift
+WARNING: shift/reduce conflict for LT in state 22 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 23 resolved as shift
+WARNING: shift/reduce conflict for REM in state 23 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 23 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 23 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 23 resolved as shift
+WARNING: shift/reduce conflict for GT in state 23 resolved as shift
+WARNING: shift/reduce conflict for LT in state 23 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 24 resolved as shift
+WARNING: shift/reduce conflict for REM in state 24 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 24 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 24 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 24 resolved as shift
+WARNING: shift/reduce conflict for GT in state 24 resolved as shift
+WARNING: shift/reduce conflict for LT in state 24 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 25 resolved as shift
+WARNING: shift/reduce conflict for REM in state 25 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 25 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 25 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 25 resolved as shift
+WARNING: shift/reduce conflict for GT in state 25 resolved as shift
+WARNING: shift/reduce conflict for LT in state 25 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 26 resolved as shift
+WARNING: shift/reduce conflict for REM in state 26 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 26 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 26 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 26 resolved as shift
+WARNING: shift/reduce conflict for GT in state 26 resolved as shift
+WARNING: shift/reduce conflict for LT in state 26 resolved as shift

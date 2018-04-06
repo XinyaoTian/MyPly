@@ -2,19 +2,26 @@
 __author__ = 'daiyaquan'
 __date__ = '2018/4/5 19:37'
 
-import ply.lex as lex
+from ply import lex, yacc
 
-import lexer
+import dlexer
+import dparser
 
 
-lexs = lex.lex(module=lexer)
-
+lexs = lex.lex(module=dlexer)
+parses = yacc.yacc(module=dparser)
 
 with open('test_code.py', 'r') as f:
     data = f.read()
 
+a = 1
 
-lexs.input(data)
+if a == 1:
+    lexs.input(data)
 
-for l in lexs:
-    print(l)
+    for l in lexs:
+        print(l)
+elif a == 2:
+    result = parses.parse(data)
+    if result:
+        print(result)
