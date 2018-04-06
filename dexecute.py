@@ -14,6 +14,7 @@ class DyqExecute:
             'condition': self._condition,
             'logop': self._logop,
             'binop': self._binop,
+            'loop': self._loop,
             # '': self._,
         }
         result = action_dict.get(self.action, self._error)()
@@ -49,6 +50,7 @@ class DyqExecute:
         result = None
         if DyqExecute.resolve(self.params[0]):
             result = DyqExecute.resolve(self.params[1])
+        # 如果失败了则执行else后面的参数
         elif len(self.params) > 2:
             result = DyqExecute.resolve(self.params[2])
         return result
@@ -85,6 +87,11 @@ class DyqExecute:
             '!=': lambda a, b: (a != b),
         }[op](a, b)
         return result
+
+    def _loop(self):
+        for i in self.params[1]:
+            var_context[self.params[0]] = i
+            DyqExecute.resolve(self.params[2])
 
     def _error(self):
         print("Error, unsupported operation:", str(self))
