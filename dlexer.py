@@ -5,10 +5,9 @@ __date__ = '2018/4/5 19:38'
 from re import escape
 from ply.lex import TOKEN
 
-
 # precedence = (
 #     ('left', 'LT', 'GT'),
-#     ('left', 'REM', 'ADD'),
+#     ('left', 'REM', 'ADD') ,
 #     ('left', 'MUL', 'DIV', 'MOD'),
 # )
 
@@ -32,14 +31,23 @@ operator_sg = {
     ')': 'RPAREN',
 }
 
+# 双字符的操作符
+operator_se = {
+    '>=': 'GE',
+    '<=': 'LE',
+    '==': 'EQ',
+    '!=': 'NE',
+    '**': 'POW',
+}
+
 """
 1. 配置tokens, 变量名必须为'tokens'
 """
 tokens = list(identify) + list(reserved.values()) \
-         + list(operator_sg.values())
+         + list(operator_sg.values()) + list(operator_se.values())
 
 """
-1. 为token配置规则
+2. 为token配置规则
 """
 
 
@@ -58,11 +66,23 @@ def t_ID(t):
     return t
 
 
+# 双字符的操作符要放在单字符操作符上面，优先匹配
+operator_se_re = '(' + '|'.join(escape(x) for x in operator_se.keys()) + ')'
+
+
+@TOKEN(operator_se_re)
+def t_OPERATOR_SE(t):
+    t.type = operator_se.get(t.value, 'SPECIAL')
+    return t
+
+
 # escape是将所有的字符自动转译成正则表达式能识别的字符
 operator_sg_re = '[' + escape(''.join(operator_sg.keys())) + ']'
+
+
 # 用装饰器将相应的正则表达式装载，原理是给__doc__赋值
 @TOKEN(operator_sg_re)
-def t_SPECIAL_MC(t):
+def t_OPERATOR_SG(t):
     t.type = operator_sg.get(t.value, 'OPERATOR')
     return t
 

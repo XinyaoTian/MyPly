@@ -3,6 +3,11 @@ Created by PLY version 3.10 (http://www.dabeaz.com/ply)
 Unused terminals:
 
     ID
+    GE
+    LE
+    EQ
+    NE
+    POW
 
 Grammar
 
@@ -27,14 +32,19 @@ Terminals, with rules where they appear
 
 ADD                  : 8
 DIV                  : 11
+EQ                   : 
 FALSE                : 6
+GE                   : 
 GT                   : 13
 ID                   : 
+LE                   : 
 LPAREN               : 4
 LT                   : 14
 MOD                  : 12
 MUL                  : 10
+NE                   : 
 NUMBER               : 7
+POW                  : 
 PRINT                : 4
 REM                  : 9
 RPAREN               : 4
