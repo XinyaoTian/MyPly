@@ -34,6 +34,7 @@ operator_sg = {
     '>': 'GT',
     '(': 'LPAREN',
     ')': 'RPAREN',
+    '=': 'ASSIGN',
 }
 
 # 双字符的操作符

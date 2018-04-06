@@ -1,5 +1,7 @@
 from dlexer import tokens
 
+var_context = {}
+
 
 def p_start(p):
     'start : function'
@@ -10,6 +12,9 @@ def p_function(p):
     function : function statement SPLIT
              | empty
     '''
+
+
+
 
 
 # print语句
@@ -30,6 +35,12 @@ def p_expression_true(p):
 def p_expression_false(p):
     'expression : FALSE'
     p[0] = False
+
+
+# 变量
+def p_expression_var(p):
+    'expression : ID'
+    p[0] = var_context.get(p[1], 0)
 
 
 # 标识符NUMBER
