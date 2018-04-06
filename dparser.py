@@ -48,6 +48,11 @@ def p_expression_two_operator(p):
                | expression MOD expression
                | expression GT expression
                | expression LT expression
+               | expression GE expression
+               | expression LE expression
+               | expression EQ expression
+               | expression NE expression
+               | expression POW expression
     '''
     p[0] = {
         '+': lambda x, y: x + y,
@@ -56,7 +61,12 @@ def p_expression_two_operator(p):
         '/': lambda x, y: x / y,
         '%': lambda x, y: x % y,
         '>': lambda x, y: x > y,
-        '<': lambda x, y: x < y
+        '<': lambda x, y: x < y,
+        '>=': lambda x, y: x >= y,
+        '<=': lambda x, y: x <= y,
+        '==': lambda x, y: x == y,
+        '!=': lambda x, y: x != y,
+        '**': lambda x, y: x ** y,
     }[p[2]](p[1], p[3])
 
 

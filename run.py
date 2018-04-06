@@ -14,7 +14,7 @@ parses = yacc.yacc(module=dparser)
 with open('test_code.py', 'r') as f:
     data = f.read()
 
-a = 1
+a = 2
 
 if a == 1:
     lexs.input(data)
