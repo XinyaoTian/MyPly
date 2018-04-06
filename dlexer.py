@@ -5,12 +5,6 @@ __date__ = '2018/4/5 19:38'
 from re import escape
 from ply.lex import TOKEN
 
-# precedence = (
-#     ('left', 'LT', 'GT'),
-#     ('left', 'REM', 'ADD') ,
-#     ('left', 'MUL', 'DIV', 'MOD'),
-# )
-
 # 状态控制
 states = (
     ('string', 'inclusive'),
@@ -20,7 +14,7 @@ states = (
 identify = ('NUMBER', 'ID', 'SPLIT', 'STRING')
 
 # 保留字，TOKEN值为大写
-reserved_list = ['true', 'false', 'print']
+reserved_list = ['true', 'false', 'print', 'and', 'or']
 reserved = {s: s.upper() for s in reserved_list}
 
 # 单字符的操作符 +-*/%><

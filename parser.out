@@ -1,5 +1,10 @@
 Created by PLY version 3.10 (http://www.dabeaz.com/ply)
 
+Unused terminals:
+
+    AND
+    OR
+
 Grammar
 
 Rule 0     S' -> start
@@ -36,6 +41,7 @@ Rule 29    empty -> <empty>
 Terminals, with rules where they appear
 
 ADD                  : 16
+AND                  : 
 ASSIGN               : 8
 COMMA                : 10
 DIV                  : 19
@@ -51,6 +57,7 @@ MOD                  : 20
 MUL                  : 18
 NE                   : 26
 NUMBER               : 14
+OR                   : 
 POW                  : 27
 PRINT                : 7
 REM                  : 17
