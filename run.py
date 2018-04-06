@@ -6,7 +6,7 @@ from ply import lex, yacc
 
 import dlexer
 import dparser
-
+from dexecute import DyqExecute
 
 lexs = lex.lex(module=dlexer)
 parses = yacc.yacc(module=dparser)
@@ -22,6 +22,6 @@ if a == 1:
     for l in lexs:
         print(l)
 elif a == 2:
-    result = parses.parse(data)
-    if result:
-        print(result)
+    # print(parses.parse(data))
+    for x in parses.parse(data):
+        DyqExecute.resolve(x)
