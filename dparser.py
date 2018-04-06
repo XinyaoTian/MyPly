@@ -1,8 +1,13 @@
-from itertools import chain
-
 from dlexer import tokens
 
 var_context = {}
+
+precedence = (
+    ('left', 'LT', 'LE', 'GT', 'GE', 'EQ', 'NE'),
+    ('left', 'REM', 'ADD'),
+    ('left', 'MUL', 'DIV', 'MOD'),
+    ('left', 'POW'),
+)
 
 
 def p_start(p):

@@ -966,46 +966,34 @@ state 36
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 16 (expression -> expression ADD expression .)
+    ADD             reduce using rule 16 (expression -> expression ADD expression .)
+    REM             reduce using rule 16 (expression -> expression ADD expression .)
+    GT              reduce using rule 16 (expression -> expression ADD expression .)
+    LT              reduce using rule 16 (expression -> expression ADD expression .)
+    GE              reduce using rule 16 (expression -> expression ADD expression .)
+    LE              reduce using rule 16 (expression -> expression ADD expression .)
+    EQ              reduce using rule 16 (expression -> expression ADD expression .)
+    NE              reduce using rule 16 (expression -> expression ADD expression .)
     RPAREN          reduce using rule 16 (expression -> expression ADD expression .)
     COMMA           reduce using rule 16 (expression -> expression ADD expression .)
-    ADD             shift and go to state 20
-    REM             shift and go to state 21
     MUL             shift and go to state 22
     DIV             shift and go to state 23
     MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
-  ! ADD             [ reduce using rule 16 (expression -> expression ADD expression .) ]
-  ! REM             [ reduce using rule 16 (expression -> expression ADD expression .) ]
   ! MUL             [ reduce using rule 16 (expression -> expression ADD expression .) ]
   ! DIV             [ reduce using rule 16 (expression -> expression ADD expression .) ]
   ! MOD             [ reduce using rule 16 (expression -> expression ADD expression .) ]
-  ! GT              [ reduce using rule 16 (expression -> expression ADD expression .) ]
-  ! LT              [ reduce using rule 16 (expression -> expression ADD expression .) ]
-  ! GE              [ reduce using rule 16 (expression -> expression ADD expression .) ]
-  ! LE              [ reduce using rule 16 (expression -> expression ADD expression .) ]
-  ! EQ              [ reduce using rule 16 (expression -> expression ADD expression .) ]
-  ! NE              [ reduce using rule 16 (expression -> expression ADD expression .) ]
   ! POW             [ reduce using rule 16 (expression -> expression ADD expression .) ]
+  ! ADD             [ shift and go to state 20 ]
+  ! REM             [ shift and go to state 21 ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 37
@@ -1024,46 +1012,34 @@ state 37
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 17 (expression -> expression REM expression .)
+    ADD             reduce using rule 17 (expression -> expression REM expression .)
+    REM             reduce using rule 17 (expression -> expression REM expression .)
+    GT              reduce using rule 17 (expression -> expression REM expression .)
+    LT              reduce using rule 17 (expression -> expression REM expression .)
+    GE              reduce using rule 17 (expression -> expression REM expression .)
+    LE              reduce using rule 17 (expression -> expression REM expression .)
+    EQ              reduce using rule 17 (expression -> expression REM expression .)
+    NE              reduce using rule 17 (expression -> expression REM expression .)
     RPAREN          reduce using rule 17 (expression -> expression REM expression .)
     COMMA           reduce using rule 17 (expression -> expression REM expression .)
-    ADD             shift and go to state 20
-    REM             shift and go to state 21
     MUL             shift and go to state 22
     DIV             shift and go to state 23
     MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
-  ! ADD             [ reduce using rule 17 (expression -> expression REM expression .) ]
-  ! REM             [ reduce using rule 17 (expression -> expression REM expression .) ]
   ! MUL             [ reduce using rule 17 (expression -> expression REM expression .) ]
   ! DIV             [ reduce using rule 17 (expression -> expression REM expression .) ]
   ! MOD             [ reduce using rule 17 (expression -> expression REM expression .) ]
-  ! GT              [ reduce using rule 17 (expression -> expression REM expression .) ]
-  ! LT              [ reduce using rule 17 (expression -> expression REM expression .) ]
-  ! GE              [ reduce using rule 17 (expression -> expression REM expression .) ]
-  ! LE              [ reduce using rule 17 (expression -> expression REM expression .) ]
-  ! EQ              [ reduce using rule 17 (expression -> expression REM expression .) ]
-  ! NE              [ reduce using rule 17 (expression -> expression REM expression .) ]
   ! POW             [ reduce using rule 17 (expression -> expression REM expression .) ]
+  ! ADD             [ shift and go to state 20 ]
+  ! REM             [ shift and go to state 21 ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 38
@@ -1082,46 +1058,34 @@ state 38
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 18 (expression -> expression MUL expression .)
+    ADD             reduce using rule 18 (expression -> expression MUL expression .)
+    REM             reduce using rule 18 (expression -> expression MUL expression .)
+    MUL             reduce using rule 18 (expression -> expression MUL expression .)
+    DIV             reduce using rule 18 (expression -> expression MUL expression .)
+    MOD             reduce using rule 18 (expression -> expression MUL expression .)
+    GT              reduce using rule 18 (expression -> expression MUL expression .)
+    LT              reduce using rule 18 (expression -> expression MUL expression .)
+    GE              reduce using rule 18 (expression -> expression MUL expression .)
+    LE              reduce using rule 18 (expression -> expression MUL expression .)
+    EQ              reduce using rule 18 (expression -> expression MUL expression .)
+    NE              reduce using rule 18 (expression -> expression MUL expression .)
     RPAREN          reduce using rule 18 (expression -> expression MUL expression .)
     COMMA           reduce using rule 18 (expression -> expression MUL expression .)
-    ADD             shift and go to state 20
-    REM             shift and go to state 21
-    MUL             shift and go to state 22
-    DIV             shift and go to state 23
-    MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
-  ! ADD             [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! REM             [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! MUL             [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! DIV             [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! MOD             [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! GT              [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! LT              [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! GE              [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! LE              [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! EQ              [ reduce using rule 18 (expression -> expression MUL expression .) ]
-  ! NE              [ reduce using rule 18 (expression -> expression MUL expression .) ]
   ! POW             [ reduce using rule 18 (expression -> expression MUL expression .) ]
+  ! ADD             [ shift and go to state 20 ]
+  ! REM             [ shift and go to state 21 ]
+  ! MUL             [ shift and go to state 22 ]
+  ! DIV             [ shift and go to state 23 ]
+  ! MOD             [ shift and go to state 24 ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 39
@@ -1140,46 +1104,34 @@ state 39
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 19 (expression -> expression DIV expression .)
+    ADD             reduce using rule 19 (expression -> expression DIV expression .)
+    REM             reduce using rule 19 (expression -> expression DIV expression .)
+    MUL             reduce using rule 19 (expression -> expression DIV expression .)
+    DIV             reduce using rule 19 (expression -> expression DIV expression .)
+    MOD             reduce using rule 19 (expression -> expression DIV expression .)
+    GT              reduce using rule 19 (expression -> expression DIV expression .)
+    LT              reduce using rule 19 (expression -> expression DIV expression .)
+    GE              reduce using rule 19 (expression -> expression DIV expression .)
+    LE              reduce using rule 19 (expression -> expression DIV expression .)
+    EQ              reduce using rule 19 (expression -> expression DIV expression .)
+    NE              reduce using rule 19 (expression -> expression DIV expression .)
     RPAREN          reduce using rule 19 (expression -> expression DIV expression .)
     COMMA           reduce using rule 19 (expression -> expression DIV expression .)
-    ADD             shift and go to state 20
-    REM             shift and go to state 21
-    MUL             shift and go to state 22
-    DIV             shift and go to state 23
-    MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
-  ! ADD             [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! REM             [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! MUL             [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! DIV             [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! MOD             [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! GT              [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! LT              [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! GE              [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! LE              [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! EQ              [ reduce using rule 19 (expression -> expression DIV expression .) ]
-  ! NE              [ reduce using rule 19 (expression -> expression DIV expression .) ]
   ! POW             [ reduce using rule 19 (expression -> expression DIV expression .) ]
+  ! ADD             [ shift and go to state 20 ]
+  ! REM             [ shift and go to state 21 ]
+  ! MUL             [ shift and go to state 22 ]
+  ! DIV             [ shift and go to state 23 ]
+  ! MOD             [ shift and go to state 24 ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 40
@@ -1198,46 +1150,34 @@ state 40
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 20 (expression -> expression MOD expression .)
+    ADD             reduce using rule 20 (expression -> expression MOD expression .)
+    REM             reduce using rule 20 (expression -> expression MOD expression .)
+    MUL             reduce using rule 20 (expression -> expression MOD expression .)
+    DIV             reduce using rule 20 (expression -> expression MOD expression .)
+    MOD             reduce using rule 20 (expression -> expression MOD expression .)
+    GT              reduce using rule 20 (expression -> expression MOD expression .)
+    LT              reduce using rule 20 (expression -> expression MOD expression .)
+    GE              reduce using rule 20 (expression -> expression MOD expression .)
+    LE              reduce using rule 20 (expression -> expression MOD expression .)
+    EQ              reduce using rule 20 (expression -> expression MOD expression .)
+    NE              reduce using rule 20 (expression -> expression MOD expression .)
     RPAREN          reduce using rule 20 (expression -> expression MOD expression .)
     COMMA           reduce using rule 20 (expression -> expression MOD expression .)
-    ADD             shift and go to state 20
-    REM             shift and go to state 21
-    MUL             shift and go to state 22
-    DIV             shift and go to state 23
-    MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
-  ! ADD             [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! REM             [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! MUL             [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! DIV             [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! MOD             [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! GT              [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! LT              [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! GE              [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! LE              [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! EQ              [ reduce using rule 20 (expression -> expression MOD expression .) ]
-  ! NE              [ reduce using rule 20 (expression -> expression MOD expression .) ]
   ! POW             [ reduce using rule 20 (expression -> expression MOD expression .) ]
+  ! ADD             [ shift and go to state 20 ]
+  ! REM             [ shift and go to state 21 ]
+  ! MUL             [ shift and go to state 22 ]
+  ! DIV             [ shift and go to state 23 ]
+  ! MOD             [ shift and go to state 24 ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 41
@@ -1256,19 +1196,13 @@ state 41
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 21 (expression -> expression GT expression .)
+    GT              reduce using rule 21 (expression -> expression GT expression .)
+    LT              reduce using rule 21 (expression -> expression GT expression .)
+    GE              reduce using rule 21 (expression -> expression GT expression .)
+    LE              reduce using rule 21 (expression -> expression GT expression .)
+    EQ              reduce using rule 21 (expression -> expression GT expression .)
+    NE              reduce using rule 21 (expression -> expression GT expression .)
     RPAREN          reduce using rule 21 (expression -> expression GT expression .)
     COMMA           reduce using rule 21 (expression -> expression GT expression .)
     ADD             shift and go to state 20
@@ -1276,12 +1210,6 @@ state 41
     MUL             shift and go to state 22
     DIV             shift and go to state 23
     MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
   ! ADD             [ reduce using rule 21 (expression -> expression GT expression .) ]
@@ -1289,13 +1217,13 @@ state 41
   ! MUL             [ reduce using rule 21 (expression -> expression GT expression .) ]
   ! DIV             [ reduce using rule 21 (expression -> expression GT expression .) ]
   ! MOD             [ reduce using rule 21 (expression -> expression GT expression .) ]
-  ! GT              [ reduce using rule 21 (expression -> expression GT expression .) ]
-  ! LT              [ reduce using rule 21 (expression -> expression GT expression .) ]
-  ! GE              [ reduce using rule 21 (expression -> expression GT expression .) ]
-  ! LE              [ reduce using rule 21 (expression -> expression GT expression .) ]
-  ! EQ              [ reduce using rule 21 (expression -> expression GT expression .) ]
-  ! NE              [ reduce using rule 21 (expression -> expression GT expression .) ]
   ! POW             [ reduce using rule 21 (expression -> expression GT expression .) ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 42
@@ -1314,19 +1242,13 @@ state 42
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 22 (expression -> expression LT expression .)
+    GT              reduce using rule 22 (expression -> expression LT expression .)
+    LT              reduce using rule 22 (expression -> expression LT expression .)
+    GE              reduce using rule 22 (expression -> expression LT expression .)
+    LE              reduce using rule 22 (expression -> expression LT expression .)
+    EQ              reduce using rule 22 (expression -> expression LT expression .)
+    NE              reduce using rule 22 (expression -> expression LT expression .)
     RPAREN          reduce using rule 22 (expression -> expression LT expression .)
     COMMA           reduce using rule 22 (expression -> expression LT expression .)
     ADD             shift and go to state 20
@@ -1334,12 +1256,6 @@ state 42
     MUL             shift and go to state 22
     DIV             shift and go to state 23
     MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
   ! ADD             [ reduce using rule 22 (expression -> expression LT expression .) ]
@@ -1347,13 +1263,13 @@ state 42
   ! MUL             [ reduce using rule 22 (expression -> expression LT expression .) ]
   ! DIV             [ reduce using rule 22 (expression -> expression LT expression .) ]
   ! MOD             [ reduce using rule 22 (expression -> expression LT expression .) ]
-  ! GT              [ reduce using rule 22 (expression -> expression LT expression .) ]
-  ! LT              [ reduce using rule 22 (expression -> expression LT expression .) ]
-  ! GE              [ reduce using rule 22 (expression -> expression LT expression .) ]
-  ! LE              [ reduce using rule 22 (expression -> expression LT expression .) ]
-  ! EQ              [ reduce using rule 22 (expression -> expression LT expression .) ]
-  ! NE              [ reduce using rule 22 (expression -> expression LT expression .) ]
   ! POW             [ reduce using rule 22 (expression -> expression LT expression .) ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 43
@@ -1372,19 +1288,13 @@ state 43
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 23 (expression -> expression GE expression .)
+    GT              reduce using rule 23 (expression -> expression GE expression .)
+    LT              reduce using rule 23 (expression -> expression GE expression .)
+    GE              reduce using rule 23 (expression -> expression GE expression .)
+    LE              reduce using rule 23 (expression -> expression GE expression .)
+    EQ              reduce using rule 23 (expression -> expression GE expression .)
+    NE              reduce using rule 23 (expression -> expression GE expression .)
     RPAREN          reduce using rule 23 (expression -> expression GE expression .)
     COMMA           reduce using rule 23 (expression -> expression GE expression .)
     ADD             shift and go to state 20
@@ -1392,12 +1302,6 @@ state 43
     MUL             shift and go to state 22
     DIV             shift and go to state 23
     MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
   ! ADD             [ reduce using rule 23 (expression -> expression GE expression .) ]
@@ -1405,13 +1309,13 @@ state 43
   ! MUL             [ reduce using rule 23 (expression -> expression GE expression .) ]
   ! DIV             [ reduce using rule 23 (expression -> expression GE expression .) ]
   ! MOD             [ reduce using rule 23 (expression -> expression GE expression .) ]
-  ! GT              [ reduce using rule 23 (expression -> expression GE expression .) ]
-  ! LT              [ reduce using rule 23 (expression -> expression GE expression .) ]
-  ! GE              [ reduce using rule 23 (expression -> expression GE expression .) ]
-  ! LE              [ reduce using rule 23 (expression -> expression GE expression .) ]
-  ! EQ              [ reduce using rule 23 (expression -> expression GE expression .) ]
-  ! NE              [ reduce using rule 23 (expression -> expression GE expression .) ]
   ! POW             [ reduce using rule 23 (expression -> expression GE expression .) ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 44
@@ -1430,19 +1334,13 @@ state 44
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 24 (expression -> expression LE expression .)
+    GT              reduce using rule 24 (expression -> expression LE expression .)
+    LT              reduce using rule 24 (expression -> expression LE expression .)
+    GE              reduce using rule 24 (expression -> expression LE expression .)
+    LE              reduce using rule 24 (expression -> expression LE expression .)
+    EQ              reduce using rule 24 (expression -> expression LE expression .)
+    NE              reduce using rule 24 (expression -> expression LE expression .)
     RPAREN          reduce using rule 24 (expression -> expression LE expression .)
     COMMA           reduce using rule 24 (expression -> expression LE expression .)
     ADD             shift and go to state 20
@@ -1450,12 +1348,6 @@ state 44
     MUL             shift and go to state 22
     DIV             shift and go to state 23
     MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
   ! ADD             [ reduce using rule 24 (expression -> expression LE expression .) ]
@@ -1463,13 +1355,13 @@ state 44
   ! MUL             [ reduce using rule 24 (expression -> expression LE expression .) ]
   ! DIV             [ reduce using rule 24 (expression -> expression LE expression .) ]
   ! MOD             [ reduce using rule 24 (expression -> expression LE expression .) ]
-  ! GT              [ reduce using rule 24 (expression -> expression LE expression .) ]
-  ! LT              [ reduce using rule 24 (expression -> expression LE expression .) ]
-  ! GE              [ reduce using rule 24 (expression -> expression LE expression .) ]
-  ! LE              [ reduce using rule 24 (expression -> expression LE expression .) ]
-  ! EQ              [ reduce using rule 24 (expression -> expression LE expression .) ]
-  ! NE              [ reduce using rule 24 (expression -> expression LE expression .) ]
   ! POW             [ reduce using rule 24 (expression -> expression LE expression .) ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 45
@@ -1488,19 +1380,13 @@ state 45
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 25 (expression -> expression EQ expression .)
+    GT              reduce using rule 25 (expression -> expression EQ expression .)
+    LT              reduce using rule 25 (expression -> expression EQ expression .)
+    GE              reduce using rule 25 (expression -> expression EQ expression .)
+    LE              reduce using rule 25 (expression -> expression EQ expression .)
+    EQ              reduce using rule 25 (expression -> expression EQ expression .)
+    NE              reduce using rule 25 (expression -> expression EQ expression .)
     RPAREN          reduce using rule 25 (expression -> expression EQ expression .)
     COMMA           reduce using rule 25 (expression -> expression EQ expression .)
     ADD             shift and go to state 20
@@ -1508,12 +1394,6 @@ state 45
     MUL             shift and go to state 22
     DIV             shift and go to state 23
     MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
   ! ADD             [ reduce using rule 25 (expression -> expression EQ expression .) ]
@@ -1521,13 +1401,13 @@ state 45
   ! MUL             [ reduce using rule 25 (expression -> expression EQ expression .) ]
   ! DIV             [ reduce using rule 25 (expression -> expression EQ expression .) ]
   ! MOD             [ reduce using rule 25 (expression -> expression EQ expression .) ]
-  ! GT              [ reduce using rule 25 (expression -> expression EQ expression .) ]
-  ! LT              [ reduce using rule 25 (expression -> expression EQ expression .) ]
-  ! GE              [ reduce using rule 25 (expression -> expression EQ expression .) ]
-  ! LE              [ reduce using rule 25 (expression -> expression EQ expression .) ]
-  ! EQ              [ reduce using rule 25 (expression -> expression EQ expression .) ]
-  ! NE              [ reduce using rule 25 (expression -> expression EQ expression .) ]
   ! POW             [ reduce using rule 25 (expression -> expression EQ expression .) ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 46
@@ -1546,19 +1426,13 @@ state 46
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 26 (expression -> expression NE expression .)
+    GT              reduce using rule 26 (expression -> expression NE expression .)
+    LT              reduce using rule 26 (expression -> expression NE expression .)
+    GE              reduce using rule 26 (expression -> expression NE expression .)
+    LE              reduce using rule 26 (expression -> expression NE expression .)
+    EQ              reduce using rule 26 (expression -> expression NE expression .)
+    NE              reduce using rule 26 (expression -> expression NE expression .)
     RPAREN          reduce using rule 26 (expression -> expression NE expression .)
     COMMA           reduce using rule 26 (expression -> expression NE expression .)
     ADD             shift and go to state 20
@@ -1566,12 +1440,6 @@ state 46
     MUL             shift and go to state 22
     DIV             shift and go to state 23
     MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
     POW             shift and go to state 31
 
   ! ADD             [ reduce using rule 26 (expression -> expression NE expression .) ]
@@ -1579,13 +1447,13 @@ state 46
   ! MUL             [ reduce using rule 26 (expression -> expression NE expression .) ]
   ! DIV             [ reduce using rule 26 (expression -> expression NE expression .) ]
   ! MOD             [ reduce using rule 26 (expression -> expression NE expression .) ]
-  ! GT              [ reduce using rule 26 (expression -> expression NE expression .) ]
-  ! LT              [ reduce using rule 26 (expression -> expression NE expression .) ]
-  ! GE              [ reduce using rule 26 (expression -> expression NE expression .) ]
-  ! LE              [ reduce using rule 26 (expression -> expression NE expression .) ]
-  ! EQ              [ reduce using rule 26 (expression -> expression NE expression .) ]
-  ! NE              [ reduce using rule 26 (expression -> expression NE expression .) ]
   ! POW             [ reduce using rule 26 (expression -> expression NE expression .) ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
 
 
 state 47
@@ -1604,46 +1472,34 @@ state 47
     (26) expression -> expression . NE expression
     (27) expression -> expression . POW expression
 
-  ! shift/reduce conflict for ADD resolved as shift
-  ! shift/reduce conflict for REM resolved as shift
-  ! shift/reduce conflict for MUL resolved as shift
-  ! shift/reduce conflict for DIV resolved as shift
-  ! shift/reduce conflict for MOD resolved as shift
-  ! shift/reduce conflict for GT resolved as shift
-  ! shift/reduce conflict for LT resolved as shift
-  ! shift/reduce conflict for GE resolved as shift
-  ! shift/reduce conflict for LE resolved as shift
-  ! shift/reduce conflict for EQ resolved as shift
-  ! shift/reduce conflict for NE resolved as shift
-  ! shift/reduce conflict for POW resolved as shift
     SPLIT           reduce using rule 27 (expression -> expression POW expression .)
+    ADD             reduce using rule 27 (expression -> expression POW expression .)
+    REM             reduce using rule 27 (expression -> expression POW expression .)
+    MUL             reduce using rule 27 (expression -> expression POW expression .)
+    DIV             reduce using rule 27 (expression -> expression POW expression .)
+    MOD             reduce using rule 27 (expression -> expression POW expression .)
+    GT              reduce using rule 27 (expression -> expression POW expression .)
+    LT              reduce using rule 27 (expression -> expression POW expression .)
+    GE              reduce using rule 27 (expression -> expression POW expression .)
+    LE              reduce using rule 27 (expression -> expression POW expression .)
+    EQ              reduce using rule 27 (expression -> expression POW expression .)
+    NE              reduce using rule 27 (expression -> expression POW expression .)
+    POW             reduce using rule 27 (expression -> expression POW expression .)
     RPAREN          reduce using rule 27 (expression -> expression POW expression .)
     COMMA           reduce using rule 27 (expression -> expression POW expression .)
-    ADD             shift and go to state 20
-    REM             shift and go to state 21
-    MUL             shift and go to state 22
-    DIV             shift and go to state 23
-    MOD             shift and go to state 24
-    GT              shift and go to state 25
-    LT              shift and go to state 26
-    GE              shift and go to state 27
-    LE              shift and go to state 28
-    EQ              shift and go to state 29
-    NE              shift and go to state 30
-    POW             shift and go to state 31
 
-  ! ADD             [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! REM             [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! MUL             [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! DIV             [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! MOD             [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! GT              [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! LT              [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! GE              [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! LE              [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! EQ              [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! NE              [ reduce using rule 27 (expression -> expression POW expression .) ]
-  ! POW             [ reduce using rule 27 (expression -> expression POW expression .) ]
+  ! ADD             [ shift and go to state 20 ]
+  ! REM             [ shift and go to state 21 ]
+  ! MUL             [ shift and go to state 22 ]
+  ! DIV             [ shift and go to state 23 ]
+  ! MOD             [ shift and go to state 24 ]
+  ! GT              [ shift and go to state 25 ]
+  ! LT              [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 27 ]
+  ! LE              [ shift and go to state 28 ]
+  ! EQ              [ shift and go to state 29 ]
+  ! NE              [ shift and go to state 30 ]
+  ! POW             [ shift and go to state 31 ]
 
 
 state 48
@@ -1761,150 +1617,3 @@ state 52
     NE              shift and go to state 30
     POW             shift and go to state 31
 
-WARNING: 
-WARNING: Conflicts:
-WARNING: 
-WARNING: shift/reduce conflict for ADD in state 36 resolved as shift
-WARNING: shift/reduce conflict for REM in state 36 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 36 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 36 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 36 resolved as shift
-WARNING: shift/reduce conflict for GT in state 36 resolved as shift
-WARNING: shift/reduce conflict for LT in state 36 resolved as shift
-WARNING: shift/reduce conflict for GE in state 36 resolved as shift
-WARNING: shift/reduce conflict for LE in state 36 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 36 resolved as shift
-WARNING: shift/reduce conflict for NE in state 36 resolved as shift
-WARNING: shift/reduce conflict for POW in state 36 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 37 resolved as shift
-WARNING: shift/reduce conflict for REM in state 37 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 37 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 37 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 37 resolved as shift
-WARNING: shift/reduce conflict for GT in state 37 resolved as shift
-WARNING: shift/reduce conflict for LT in state 37 resolved as shift
-WARNING: shift/reduce conflict for GE in state 37 resolved as shift
-WARNING: shift/reduce conflict for LE in state 37 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 37 resolved as shift
-WARNING: shift/reduce conflict for NE in state 37 resolved as shift
-WARNING: shift/reduce conflict for POW in state 37 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 38 resolved as shift
-WARNING: shift/reduce conflict for REM in state 38 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 38 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 38 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 38 resolved as shift
-WARNING: shift/reduce conflict for GT in state 38 resolved as shift
-WARNING: shift/reduce conflict for LT in state 38 resolved as shift
-WARNING: shift/reduce conflict for GE in state 38 resolved as shift
-WARNING: shift/reduce conflict for LE in state 38 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 38 resolved as shift
-WARNING: shift/reduce conflict for NE in state 38 resolved as shift
-WARNING: shift/reduce conflict for POW in state 38 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 39 resolved as shift
-WARNING: shift/reduce conflict for REM in state 39 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 39 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 39 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 39 resolved as shift
-WARNING: shift/reduce conflict for GT in state 39 resolved as shift
-WARNING: shift/reduce conflict for LT in state 39 resolved as shift
-WARNING: shift/reduce conflict for GE in state 39 resolved as shift
-WARNING: shift/reduce conflict for LE in state 39 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 39 resolved as shift
-WARNING: shift/reduce conflict for NE in state 39 resolved as shift
-WARNING: shift/reduce conflict for POW in state 39 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 40 resolved as shift
-WARNING: shift/reduce conflict for REM in state 40 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 40 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 40 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 40 resolved as shift
-WARNING: shift/reduce conflict for GT in state 40 resolved as shift
-WARNING: shift/reduce conflict for LT in state 40 resolved as shift
-WARNING: shift/reduce conflict for GE in state 40 resolved as shift
-WARNING: shift/reduce conflict for LE in state 40 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 40 resolved as shift
-WARNING: shift/reduce conflict for NE in state 40 resolved as shift
-WARNING: shift/reduce conflict for POW in state 40 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 41 resolved as shift
-WARNING: shift/reduce conflict for REM in state 41 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 41 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 41 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 41 resolved as shift
-WARNING: shift/reduce conflict for GT in state 41 resolved as shift
-WARNING: shift/reduce conflict for LT in state 41 resolved as shift
-WARNING: shift/reduce conflict for GE in state 41 resolved as shift
-WARNING: shift/reduce conflict for LE in state 41 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 41 resolved as shift
-WARNING: shift/reduce conflict for NE in state 41 resolved as shift
-WARNING: shift/reduce conflict for POW in state 41 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 42 resolved as shift
-WARNING: shift/reduce conflict for REM in state 42 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 42 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 42 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 42 resolved as shift
-WARNING: shift/reduce conflict for GT in state 42 resolved as shift
-WARNING: shift/reduce conflict for LT in state 42 resolved as shift
-WARNING: shift/reduce conflict for GE in state 42 resolved as shift
-WARNING: shift/reduce conflict for LE in state 42 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 42 resolved as shift
-WARNING: shift/reduce conflict for NE in state 42 resolved as shift
-WARNING: shift/reduce conflict for POW in state 42 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 43 resolved as shift
-WARNING: shift/reduce conflict for REM in state 43 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 43 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 43 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 43 resolved as shift
-WARNING: shift/reduce conflict for GT in state 43 resolved as shift
-WARNING: shift/reduce conflict for LT in state 43 resolved as shift
-WARNING: shift/reduce conflict for GE in state 43 resolved as shift
-WARNING: shift/reduce conflict for LE in state 43 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 43 resolved as shift
-WARNING: shift/reduce conflict for NE in state 43 resolved as shift
-WARNING: shift/reduce conflict for POW in state 43 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 44 resolved as shift
-WARNING: shift/reduce conflict for REM in state 44 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 44 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 44 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 44 resolved as shift
-WARNING: shift/reduce conflict for GT in state 44 resolved as shift
-WARNING: shift/reduce conflict for LT in state 44 resolved as shift
-WARNING: shift/reduce conflict for GE in state 44 resolved as shift
-WARNING: shift/reduce conflict for LE in state 44 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 44 resolved as shift
-WARNING: shift/reduce conflict for NE in state 44 resolved as shift
-WARNING: shift/reduce conflict for POW in state 44 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 45 resolved as shift
-WARNING: shift/reduce conflict for REM in state 45 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 45 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 45 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 45 resolved as shift
-WARNING: shift/reduce conflict for GT in state 45 resolved as shift
-WARNING: shift/reduce conflict for LT in state 45 resolved as shift
-WARNING: shift/reduce conflict for GE in state 45 resolved as shift
-WARNING: shift/reduce conflict for LE in state 45 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 45 resolved as shift
-WARNING: shift/reduce conflict for NE in state 45 resolved as shift
-WARNING: shift/reduce conflict for POW in state 45 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 46 resolved as shift
-WARNING: shift/reduce conflict for REM in state 46 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 46 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 46 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 46 resolved as shift
-WARNING: shift/reduce conflict for GT in state 46 resolved as shift
-WARNING: shift/reduce conflict for LT in state 46 resolved as shift
-WARNING: shift/reduce conflict for GE in state 46 resolved as shift
-WARNING: shift/reduce conflict for LE in state 46 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 46 resolved as shift
-WARNING: shift/reduce conflict for NE in state 46 resolved as shift
-WARNING: shift/reduce conflict for POW in state 46 resolved as shift
-WARNING: shift/reduce conflict for ADD in state 47 resolved as shift
-WARNING: shift/reduce conflict for REM in state 47 resolved as shift
-WARNING: shift/reduce conflict for MUL in state 47 resolved as shift
-WARNING: shift/reduce conflict for DIV in state 47 resolved as shift
-WARNING: shift/reduce conflict for MOD in state 47 resolved as shift
-WARNING: shift/reduce conflict for GT in state 47 resolved as shift
-WARNING: shift/reduce conflict for LT in state 47 resolved as shift
-WARNING: shift/reduce conflict for GE in state 47 resolved as shift
-WARNING: shift/reduce conflict for LE in state 47 resolved as shift
-WARNING: shift/reduce conflict for EQ in state 47 resolved as shift
-WARNING: shift/reduce conflict for NE in state 47 resolved as shift
-WARNING: shift/reduce conflict for POW in state 47 resolved as shift
