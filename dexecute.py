@@ -7,21 +7,16 @@ class DyqExecute:
         self.params = params
 
     def execute(self):
-        result = None
-        if self.action == 'print':
-            self._print()
-        elif self.action == 'assign':
-            result = self._assign()
-        elif self.action == 'get':
-            result = self._get()
-        elif self.action == 'condition':
-            result = self._condition()
-        elif self.action == 'logop':
-            result = self._logop()
-        elif self.action == 'binop':
-            result = self._binop()
-        else:
-            print("Error, unsupported operation:", str(self))
+        action_dict = {
+            'print': self._print,
+            'assign': self._assign,
+            'get': self._get,
+            'condition': self._condition,
+            'logop': self._logop,
+            'binop': self._binop,
+            # '': self._,
+        }
+        result = action_dict.get(self.action, self._error)()
         return result
 
     def __str__(self):
@@ -40,6 +35,7 @@ class DyqExecute:
 
     def _print(self):
         print(' '.join(str(DyqExecute.resolve(x)) for x in list(self.params)))
+        return None
 
     def _assign(self):
         result = var_context[self.params[0]] = DyqExecute.resolve(self.params[1])
@@ -89,5 +85,9 @@ class DyqExecute:
             '!=': lambda a, b: (a != b),
         }[op](a, b)
         return result
+
+    def _error(self):
+        print("Error, unsupported operation:", str(self))
+        return None
 
 
