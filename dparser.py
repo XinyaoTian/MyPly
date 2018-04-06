@@ -10,6 +10,21 @@ precedence = (
 )
 
 
+# 处理逻辑控制相关
+def get_conditions(params):
+    params = list(params)
+    result = params.pop()
+    while len(params) >= 2:
+        prev = result
+        op = params.pop()
+        comp = params.pop()
+        result = {
+            'and': lambda a, b: (a and b),
+            'or': lambda a, b: (a or b),
+        }[op](prev, comp)
+    return result
+
+
 def p_start(p):
     'start : function'
 
@@ -43,10 +58,12 @@ def p_statement_print(p):
 def p_statement_assign(p):
     '''
     line_statement : ID ASSIGN expression SPLIT
+                   | ID ASSIGN condition_list SPLIT
     '''
     p[0] = var_context[p[1]] = p[3]
 
 
+# print功能扩展-多变量
 def p_expression_list(p):
     '''
     expr_list : expression
@@ -56,6 +73,25 @@ def p_expression_list(p):
         p[0] = [p[1]]
     else:
         p[0] = p[1] + [p[3]]
+
+
+def p_condition_list(p):
+    '''
+    condition_list : expression
+                   | condition_list AND expression
+                   | condition_list OR expression
+    '''
+
+    if len(p) > 2:
+        p[0] = get_conditions(params=p[1:])
+    else:
+        p[0] = p[1]
+
+
+# 增加括号(控制语句)功能
+def p_condition_parens(p):
+    'condition_list : LPAREN condition_list RPAREN'
+    p[0] = p[2]
 
 
 # true
@@ -120,7 +156,7 @@ def p_expression_two_operator(p):
     }[p[2]](p[1], p[3])
 
 
-# 增加括号(语句)功能
+# 增加括号(表达式)功能
 def p_expression_parens(p):
     'expression : LPAREN expression RPAREN'
     p[0] = p[2]

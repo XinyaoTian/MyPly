@@ -24,5 +24,7 @@
 #
 # print(a, b, '   ', 'aaaaa', 2)
 
-print(3 > 2 and 3 > 1)
-print(3 < 2 or 3 < 1)
+and1 = 3 > 2 and 3 > 1 and 3 > 0
+or1 = 3 < 2 or 3 < 1
+print(and1)
+print(or1)
