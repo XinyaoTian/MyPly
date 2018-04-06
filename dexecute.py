@@ -9,48 +9,19 @@ class DyqExecute:
     def execute(self):
         result = None
         if self.action == 'print':
-            print(' '.join(str(DyqExecute.resolve(x)) for x in list(self.params)))
+            self._print()
         elif self.action == 'assign':
-            result = var_context[self.params[0]] = DyqExecute.resolve(self.params[1])
+            result = self._assign()
         elif self.action == 'get':
-            result = var_context.get(self.params[0], 0)
+            result = self._get()
         elif self.action == 'condition':
-            if DyqExecute.resolve(self.params[0]):
-                result = DyqExecute.resolve(self.params[1])
-            elif len(self.params) > 2:
-                result = DyqExecute.resolve(self.params[2])
+            result = self._condition()
         elif self.action == 'logop':
-            params = list(self.params)
-            result = DyqExecute.resolve(params.pop())
-            while len(params) >= 2:
-                prev = result
-                op = DyqExecute.resolve(params.pop()).upper()
-                comp = DyqExecute.resolve(params.pop())
-                result = {
-                    'AND': lambda a, b: (a and b),
-                    'OR': lambda a, b: (a or b),
-                }[op](prev, comp)
+            result = self._logop()
         elif self.action == 'binop':
-            a = DyqExecute.resolve(self.params[0])
-            b = DyqExecute.resolve(self.params[2])
-            op = self.params[1]
-            result = {
-                '+': lambda a, b: a + b,
-                '-': lambda a, b: a - b,
-                '*': lambda a, b: a * b,
-                '/': lambda a, b: a / b,
-                '%': lambda a, b: a % b,
-                '**': lambda a, b: a ** b,
-                '>': lambda a, b: (a > b),
-                '>=': lambda a, b: (a >= b),
-                '<': lambda a, b: (a < b),
-                '<=': lambda a, b: (a <= b),
-                '==': lambda a, b: (a == b),
-                '!=': lambda a, b: (a != b),
-            }[op](a, b)
+            result = self._binop()
         else:
             print("Error, unsupported operation:", str(self))
-
         return result
 
     def __str__(self):
@@ -66,3 +37,57 @@ class DyqExecute:
             return x
         else:
             return x.execute()
+
+    def _print(self):
+        print(' '.join(str(DyqExecute.resolve(x)) for x in list(self.params)))
+
+    def _assign(self):
+        result = var_context[self.params[0]] = DyqExecute.resolve(self.params[1])
+        return result
+
+    def _get(self):
+        result = var_context.get(self.params[0], 0)
+        return result
+
+    def _condition(self):
+        result = None
+        if DyqExecute.resolve(self.params[0]):
+            result = DyqExecute.resolve(self.params[1])
+        elif len(self.params) > 2:
+            result = DyqExecute.resolve(self.params[2])
+        return result
+
+    def _logop(self):
+        params = list(self.params)
+        result = DyqExecute.resolve(params.pop())
+        while len(params) >= 2:
+            prev = result
+            op = DyqExecute.resolve(params.pop()).upper()
+            comp = DyqExecute.resolve(params.pop())
+            result = {
+                'AND': lambda a, b: (a and b),
+                'OR': lambda a, b: (a or b),
+            }[op](prev, comp)
+        return result
+
+    def _binop(self):
+        a = DyqExecute.resolve(self.params[0])
+        b = DyqExecute.resolve(self.params[2])
+        op = self.params[1]
+        result = {
+            '+': lambda a, b: a + b,
+            '-': lambda a, b: a - b,
+            '*': lambda a, b: a * b,
+            '/': lambda a, b: a / b,
+            '%': lambda a, b: a % b,
+            '**': lambda a, b: a ** b,
+            '>': lambda a, b: (a > b),
+            '>=': lambda a, b: (a >= b),
+            '<': lambda a, b: (a < b),
+            '<=': lambda a, b: (a <= b),
+            '==': lambda a, b: (a == b),
+            '!=': lambda a, b: (a != b),
+        }[op](a, b)
+        return result
+
+
