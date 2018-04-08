@@ -14,15 +14,15 @@ precedence = (
 )
 
 
-def p_start(p):
-    'start : function'
+def p_entry(p):
+    'entry : start'
     p[0] = exelist
 
 
-def p_function(p):
+def p_start(p):
     '''
-    function : function statement SPLIT
-             | function line_statement
+    start : start stmt_print SPLIT
+             | start stmt
              | empty
     '''
     if len(p) > 2:
@@ -30,19 +30,19 @@ def p_function(p):
         p[0] = p[2]
 
 
-def p_statement_none(p):
-    'line_statement : SPLIT'
+def p_stmt_print_none(p):
+    'stmt : SPLIT'
 
 
-def p_statement_expr(p):
-    'line_statement : expression SPLIT'
+def p_stmt_print_expr(p):
+    'stmt : expression SPLIT'
     p[0] = p[1]
 
 
 # print语句
-def p_statement_print(p):
+def p_stmt_print_print(p):
     '''
-    statement : PRINT LPAREN expr_list RPAREN
+    stmt_print : PRINT LPAREN expr_list RPAREN
     '''
     p[0] = DyqExecute(action='print', params=p[3])
 
@@ -50,18 +50,16 @@ def p_statement_print(p):
 # 生成一个list对象记录着每个迭代的次数
 def p_range(p):
     'range : RANGE LPAREN expr_list RPAREN'
-    print('is range', p)
     p[0] = list(range(p[3][0], p[3][1]))
-    print('is range', p[0])
 
 
-def p_statement_for(p):
-    'line_statement : FOR ID IN range COLON statement SPLIT'
+def p_stmt_print_for(p):
+    'stmt : FOR ID IN range COLON stmt_print SPLIT'
     p[0] = DyqExecute(action='loop', params=[p[2], p[4], p[6]])
 
 
-def p_statement_cond_postfix_else(p):
-    'line_statement : statement IF condition_list ELSE statement SPLIT'
+def p_stmt_print_cond_postfix_else(p):
+    'stmt : stmt_print IF condition_list ELSE stmt_print SPLIT'
     p[0] = DyqExecute(action='condition', params=[p[3], p[1], p[5]])
 
 
@@ -70,18 +68,18 @@ def p_ifassign(p):
     p[0] = [p[1], p[3]]
 
 
-def p_statement_cond_postfix_assign(p):
-    'line_statement : if_assign IF condition_list ELSE expression SPLIT'
+def p_stmt_print_cond_postfix_assign(p):
+    'stmt : if_assign IF condition_list ELSE expression SPLIT'
     p[0] = DyqExecute(action='assign', params=[
         p[1][0], DyqExecute(action='condition', params=[p[3], p[1][1], p[5]])
     ])
 
 
 # IF语句(少两个优先级的判定)
-def p_statement_cond(p):
+def p_stmt_print_cond(p):
     '''
-    line_statement : IF condition_list COLON statement SPLIT
-                   | IF condition_list COLON SPLIT statement SPLIT
+    stmt : IF condition_list COLON stmt_print SPLIT
+                   | IF condition_list COLON SPLIT stmt_print SPLIT
     '''
     # 分为上面两种情况，一个stmt的位置在4,一个在5(0开始计数)
     if len(p) < 7:
@@ -91,9 +89,9 @@ def p_statement_cond(p):
 
 
 # 赋值语句
-def p_statement_assign(p):
+def p_stmt_print_assign(p):
     '''
-    line_statement : ID ASSIGN expression SPLIT
+    stmt : ID ASSIGN expression SPLIT
                    | ID ASSIGN condition_list SPLIT
     '''
     p[0] = DyqExecute(action='assign', params=[p[1], p[3]])
